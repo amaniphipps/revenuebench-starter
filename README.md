@@ -1,14 +1,13 @@
 # The Revenue Bench
 
 **An open-source benchmark for revenue teams — an open harness for benchmarking LLMs
-on your own workflows. Same structure behind the [Revenue Bench study](https://www.therevenuebench.com): 40 tests,
-102 models.**
+on your own workflows. See more at [Revenue Bench study](https://www.therevenuebench.com)
 
 ## Why this exists
 
-We use open source models at Bonusly. We have for months (as of the time of this writing). The problem was never whether
+We use open source models at Bonusly. We have for since 2025). The problem was never whether
 to try them — it's that there are so many, and it's hard to know which ones are any good,
-at what, and how they differ in costs. 
+at what, and how they differ in costs esp as we wanted to add them across more use cases. 
 
 I also wanted a more definitive answer to the bigger question: whether a team should be
 using open models at all. At this point, I think the answer still is "it depends". It depends on where the rest of the industry is, what solutions are available, where your team is, and your actual use cases. There are plenty of situations where an
@@ -22,10 +21,10 @@ through an agent, I wanted to see if there was a material difference with eviden
 So we built our own. Forty tests, drawn from real skills we've deployed in our own
 Bonusly instance and use day to day. We anonymized the data so it belongs to no one in
 particular, kept the mess that makes the work hard, and ran the tests across a wide range
-of models. Everything is compared against Claude Sonnet 5, because that's a solid
+of models. Everything is compared initially against Claude Sonnet 5, because that's a solid
 baseline for most people's everyday work and it's what we run today. The tests, the data,
 the answer keys, every response, and every score are all published in the
-[BonuslyBench report](https://www.bonuslybench.com) — updated once a month as new models
+[RevenueBench report](https://www.therevenuebench.com) — updated once a month as new models
 release.
 
 That's the why. It's curiosity, mostly. This world changes every few weeks, and I'd
@@ -38,16 +37,8 @@ deterministic scorers, the provider templates, and ten sample tests drawn from t
 categories as the real suite. You bring the connectors, the tests, and the keys — then
 take it, run it on your own tasks, and tell me where it's wrong.
 
-— Amani Phipps, Senior Revenue Architect at Bonusly
+— Amani Phipps, Head of Revenue Architecture at Bonusly
 
-## What the study found (short version)
-
-- **102 models** tested via OpenRouter — 95 completed all 40 tests, 7 documented partials
-- **Top overall:** `muse-spark-1.1` (0.977) · **Best cost-for-value:** `glm-5.3-flash` (0.968 @ $0.28 total)
-- **`gpt-5.5-pro` cost $123.62** without leading on accuracy
-- **20 of 103 models fabricated at least one answer** — no model is safe to run unvalidated against your CRM
-
-Full results, updated monthly: [bonuslybench.com](https://www.bonuslybench.com)
 
 ## Design principles
 
@@ -64,7 +55,7 @@ Full results, updated monthly: [bonuslybench.com](https://www.bonuslybench.com)
 
 ## The report refreshes monthly
 
-The live report at [bonuslybench.com](https://www.bonuslybench.com) re-runs on the 1st
+The live report at [therevenuebench.com]re-runs on the 1st
 of every month: new OpenRouter chat models released since the last run get added, models
 still on the list that haven't been run in over two months get re-run, and the oldest
 models roll off once the list passes ~120. The "last run" date on the site is stamped
@@ -148,7 +139,7 @@ Add your own by extending `PROVIDERS` in `bonuslybench/run_bench.py`.
 ## Cost & telemetry
 
 Usage files capture tokens and cost (OpenRouter returns `usage.cost`).
-Latency and tok/s are joined per response. The original BonuslyBench processed
+Latency and tok/s are joined per response. The original RevenueBench processed
 102 models for ~$764.
 
 ## Sample results → publication
